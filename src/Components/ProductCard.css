@@ -43,6 +43,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .heart-top:hover {

@@ -12,6 +12,7 @@ import ProductSearchComponent from './Pages/ProductSearch/ProductSearchComponent
 import FooterClassCom from './Components/FooterClassCom';
 import HomeFunctionComponent from './Pages/Home/HomeFunctionComponent';
 import ProductsOfCategory from './Pages/ProductsOfCategory/ProductsOfCategory';
+import FavoritFunctionComponent from './Pages/Favoirt/FavoritFunctionComponent';
 
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
       <Route exact path={'/productdetails/:productId'} component={ProductDetailsFunction} />
       <Route exact path={'/products/:productName'} component={ProductSearchComponent} />
       <Route exact path={'/categoey/:categoryName'} component={ProductsOfCategory} />
+      <Route exact path={'/favorit'} component={FavoritFunctionComponent} />
+      
     </Switch>
     <FooterClassCom />
     </BrowserRouter>

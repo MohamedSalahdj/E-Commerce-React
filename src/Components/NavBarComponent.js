@@ -32,7 +32,7 @@ function NavBarComponent() {
                             <Link className="nav-link active"  aria-current="page" to="/products">products</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link active"  aria-current="page" to="#">Favourit</Link>
+                            <Link className="nav-link active"  aria-current="page" to="/favorit">Favourit</Link>
                         </li>
                     </ul>
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
