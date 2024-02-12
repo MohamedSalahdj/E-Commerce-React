@@ -151,7 +151,9 @@ function RegisterFunctionComponent () {
          <div className="mt-3 mx-auto"  style={{"width":"150px"}}>
           <img src='ecommerce.png' style={{"width":"100%","height":"150px"}} className="d-block"/>
         </div>
-        <div className="w-25 p-4 mt-2 mx-auto border bg-white rounded">
+        <div className="container mb-5">
+
+        <div className="col-lg-5 col-md-7 col-sm-9 p-4 mt-2 mx-auto border bg-white rounded">
          <form onSubmit={handleSubmit}>
             <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label ">Name</label>
@@ -218,6 +220,7 @@ function RegisterFunctionComponent () {
                     <p className="text-center">Already have an account? <Link to='/login'>Sign in</Link></p>
                 </div>
             </form>
+            </div>
             </div>
         
         </>

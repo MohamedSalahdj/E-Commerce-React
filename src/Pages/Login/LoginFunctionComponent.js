@@ -18,6 +18,8 @@ function LoginFunctionComponent() {
         emailError : "",
         passwordError : ""
     })
+
+    const [loginMessage, setLoginMessage] = useState('')
     
     // emial Is Requird
    const changeUserDate = (e) => {
@@ -71,20 +73,14 @@ function LoginFunctionComponent() {
    const handleLogin = (e) => {
     e.preventDefault();
 
-    // Retrieve users from local storage
     const users = JSON.parse(localStorage.getItem('users')) || [];
-    
-    // Find user with matching email and password
     const user = users.find((user) => user.email === loginData.email && user.password === loginData.password);
 
     if (user) {
-        // User found, perform login action (e.g., redirect to dashboard)
-        alert('Login successful!');
-        // Redirect or navigate to another page
-        // Example: window.location.href = 'dashboard.html';
+        setLoginMessage('Login successful!');
+        localStorage.setItem("loggedInUser", user.email);
     } else {
-        // User not found or incorrect credentials
-        alert('Invalid email or password. Please try again.');
+        setLoginMessage('Invalid email or password. Please try again.');
     }
 };
 
@@ -120,7 +116,11 @@ function LoginFunctionComponent() {
                     <MessageErrorComponent classErrorMessage={loginErrors.passwordError === "Password correct" ? "success" : "danger"} messageError={loginErrors.passwordError}/>
                 </div>
                 <button type="submit" className="w-100 btn text-light btn-form">Login</button>
+                <MessageErrorComponent classErrorMessage={loginMessage === "Invalid email or password. Please try again." ? "danger" : "success"} messageError={loginMessage}/>
+               
+                
                 <hr className="w-75 mx-auto"></hr>
+
                 <div className="mx-auto">
                     <p className="text-center">Don't have account? <Link to="/register">sign up</Link></p>
                 </div>
