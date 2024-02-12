@@ -28,6 +28,8 @@ function RegisterFunctionComponent () {
         passwordError2 : ""
     })
 
+    const [formMessage, setFormMessage] = useState('')
+
     const changeFormData = (e) => {
         // make name field requird 
         if (e.target.name == "name" ){
@@ -37,7 +39,7 @@ function RegisterFunctionComponent () {
             })
             setRegisterFormErrors({
                 ...registerFormErrors,
-                nameError : e.target.value.length == 0 && "Name Field Is Required"
+                nameError : e.target.value.length == 0 ? "Name Field Is Required" : "name vaild"
             })
         }
         else if (e.target.name == "email") {
@@ -55,7 +57,7 @@ function RegisterFunctionComponent () {
                 emailmessage = "Enter vaild emial ex. mohamed@gmail.com"
             }
             else {
-                emailmessage = "Vaild Email"
+                emailmessage = null
             }
             setRegisterFormErrors({
                 ...registerFormErrors,
@@ -128,11 +130,16 @@ function RegisterFunctionComponent () {
     const current_user = users.find((user) => user.email === newUser.email);
 
     if (current_user) {
-        alert('Email already exists!');
-    } else {
+        setFormMessage('Email already exists!');
+    }else if(registerFormErrors.nameError == 'name vaild' && registerFormErrors.emailError == null && registerFormErrors.passwordError1 == null && registerFormErrors.passwordError2 == 'password matched'){
         users.push(newUser);
         localStorage.setItem('users', JSON.stringify(users));
-        alert('User registered successfully!');
+        setFormMessage('User registered successfully!');
+    } 
+    
+    else {
+        setFormMessage('Enter Vaild Data');
+
     }
 };
 
@@ -204,6 +211,8 @@ function RegisterFunctionComponent () {
                     </div>
                     <MessageErrorComponent classErrorMessage={registerFormErrors.passwordError2 == "password don't match" ? "danger" : "success"} messageError={registerFormErrors.passwordError2} />
                 </div>
+                <MessageErrorComponent classErrorMessage={formMessage == "User registered successfully!" ? "success" : "danger"} messageError={formMessage} />
+
                 <button type="submit" className="btn btn-success w-100 btn-form">Register</button>
                 <div className="mt-3 ">
                     <p className="text-center">Already have an account? <Link to='/login'>Sign in</Link></p>
