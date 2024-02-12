@@ -1,0 +1,54 @@
+
+
+.details-content {
+    padding: 35px;
+    border-radius: 8px;
+    background-color: #fff;   
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #39404a;
+    font-weight: 500;
+}
+
+.details-name {
+    font-size: 22px;
+    text-transform: capitalize;
+    margin-bottom: 5px;   
+    cursor: pointer;
+}
+
+.details-name a{
+    color: #39404a;
+    display: inline-block;
+}
+/* 
+.details-name a:hover{
+    color: #119744;
+} */
+
+p:hover .lnk {
+    color: #119744;   
+}
+
+
+.details-share-list {
+    list-style-type: none;
+}
+
+.cart-btn, .fav-btn {
+    width: 48%;
+    color: #555555;
+    background-color: #f5f5f5;
+    border: none;
+}
+
+.cart-btn:hover {
+    color: white;
+    background-color: #119744; 
+}
+
+.fav-btn:hover {
+    color: white;
+    background-color: #119744; 
+}

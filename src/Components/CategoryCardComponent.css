@@ -1,0 +1,16 @@
+.card-bo {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.card-bo:hover {
+    background-color: #27ae60;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+}
+
+
+.card-title {
+    text-transform: capitalize;
+}

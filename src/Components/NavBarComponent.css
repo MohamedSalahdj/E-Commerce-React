@@ -1,0 +1,12 @@
+
+.search-lnk {
+    border-color:  #192a56;
+    color: #192a56;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.search-lnk:hover {
+    border-color: #27ae60;
+    letter-spacing: 0.05rem;
+}
