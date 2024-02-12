@@ -1,3 +1,6 @@
+.navbar-brand-title {
+    color: #192a56;
+}
 
 .search-lnk {
     border-color:  #192a56;
@@ -9,4 +12,14 @@
 .search-lnk:hover {
     border-color: #27ae60;
     letter-spacing: 0.05rem;
+}
+
+.nav-header:hover {
+    background-color: #27ae60;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.nav-header:hover .lnk{
+    color: #fff;
 }

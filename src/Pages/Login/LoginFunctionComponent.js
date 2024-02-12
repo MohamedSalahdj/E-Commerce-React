@@ -1,6 +1,8 @@
 import { useState } from "react";
 import MessageErrorComponent from "../../Components/MessageErrorcomponent";
 import HeaderFormComponent from "../../Components/HeaderFormComponent";
+import { Link } from "react-router-dom"
+
 import './Login.css';
 
 function LoginFunctionComponent() {
@@ -89,8 +91,10 @@ function LoginFunctionComponent() {
 
     return (
         <>
-        <div className="w-50 p-3 my-5 mx-auto border">
-        <HeaderFormComponent headerForm="Login Form" />
+        <div className="mt-5 mx-auto"  style={{"width":"150px"}}>
+          <img src='ecommerce.png' style={{"width":"100%","height":"150px"}} className="d-block"/>
+        </div>
+        <div className="w-25 p-3 my-3 mx-auto border bg-white rounded">
             <form onSubmit={handleLogin}>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label ">Email address</label>
@@ -113,14 +117,15 @@ function LoginFunctionComponent() {
                         <i class="bi bi-eye-slash" id="togglePassword"></i>
                      </button>
                     </div>
-                   
-
                     <MessageErrorComponent classErrorMessage={loginErrors.passwordError === "Password correct" ? "success" : "danger"} messageError={loginErrors.passwordError}/>
                 </div>
-                <button type="submit" className="btn btn-primary w-100">Login</button>
+                <button type="submit" className="w-100 btn text-light btn-form">Login</button>
+                <hr className="w-75 mx-auto"></hr>
+                <div className="mx-auto">
+                    <p className="text-center">Don't have account? <Link to="/register">sign up</Link></p>
+                </div>
             </form>
         </div>
-        <hr className="w-75 mx-auto"></hr>
         </>
     )
 

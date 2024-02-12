@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ProductCardComponent from "../../Components/ProductCardComponent";
 
+
+
 function ListProductFunctionComponent() {
 
     const [productList, setProductList] = useState([])
@@ -48,8 +50,19 @@ function ListProductFunctionComponent() {
         }
     }
 
-    console.log("We in page =",pageNumber)
-    console.log("skip item", skipItem)
+
+
+
+    
+
+    //here
+
+
+
+
+
+    
+ 
 
 
     return (

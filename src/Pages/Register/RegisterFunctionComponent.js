@@ -1,6 +1,8 @@
 import { useState } from "react";
 import HeaderFormComponent from "../../Components/HeaderFormComponent";
 import MessageErrorComponent from "../../Components/MessageErrorcomponent";
+import { Link } from "react-router-dom"
+import '../Login/Login.css'
 
 function RegisterFunctionComponent () {
 
@@ -108,7 +110,7 @@ function RegisterFunctionComponent () {
         else if (e.target.name == "password2") {
             setRegisterFormErrors({
                 ...registerFormErrors,
-                passwordError2 : e.target.name != registerFormData.password && "password don't match"
+                passwordError2 : e.target.value != registerFormData.password ? "password don't match" : "password matched"
             })
         }
 
@@ -139,8 +141,10 @@ function RegisterFunctionComponent () {
     return (
 
         <>
-        <div className="w-75 p-4 my-5 mx-auto border">
-        <HeaderFormComponent headerForm="Register Form" />
+         <div className="mt-3 mx-auto"  style={{"width":"150px"}}>
+          <img src='ecommerce.png' style={{"width":"100%","height":"150px"}} className="d-block"/>
+        </div>
+        <div className="w-25 p-4 mt-2 mx-auto border bg-white rounded">
          <form onSubmit={handleSubmit}>
             <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label ">Name</label>
@@ -183,7 +187,7 @@ function RegisterFunctionComponent () {
                         <i class="bi bi-eye-slash" id="togglePassword"></i>
                      </button>
                     </div>
-                    <MessageErrorComponent classErrorMessage="danger" messageError={registerFormErrors.passwordError1} />
+                    <MessageErrorComponent classErrorMessage={"danger"} messageError={registerFormErrors.passwordError1} />
                 </div>
 
                 <div className="mb-3">
@@ -198,9 +202,12 @@ function RegisterFunctionComponent () {
                         <i class="bi bi-eye-slash" id="togglePassword"></i>
                      </button>
                     </div>
-                    <MessageErrorComponent classErrorMessage="danger" messageError={registerFormErrors.passwordError2} />
+                    <MessageErrorComponent classErrorMessage={registerFormErrors.passwordError2 == "password don't match" ? "danger" : "success"} messageError={registerFormErrors.passwordError2} />
                 </div>
-                <button type="submit" className="btn btn-success">Register</button>
+                <button type="submit" className="btn btn-success w-100 btn-form">Register</button>
+                <div className="mt-3 ">
+                    <p className="text-center">Already have an account? <Link to='/login'>Sign in</Link></p>
+                </div>
             </form>
             </div>
         
