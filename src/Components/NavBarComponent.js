@@ -37,14 +37,6 @@ function NavBarComponent(props) {
                             <Link className="nav-link active text-secondary lnk"  aria-current="page" to="/products">products</Link>
                         </li>
                     </ul>
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item me-2 nav-header text-secondary">
-                            <Link to='/login' className="nav-link active"  aria-current="page" href="#">Login</Link>
-                        </li>
-                        <li className="nav-item me-2 nav-header text-secondary">
-                            <Link to='/register' className="nav-link active"  aria-current="page" href="#">Register</Link>
-                        </li>
-                    </ul>
                         <form className="d-flex" role="search">
                             <input className="form-control me-2" type="search" placeholder="Product Search" aria-label="Search" 
                                 onChange={(e)=> handelSearch(e)} value={searchQuery}
