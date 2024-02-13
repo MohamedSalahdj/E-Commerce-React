@@ -13,6 +13,7 @@ import FooterClassCom from './Components/FooterClassCom';
 import HomeFunctionComponent from './Pages/Home/HomeFunctionComponent';
 import ProductsOfCategory from './Pages/ProductsOfCategory/ProductsOfCategory';
 import FavoritFunctionComponent from './Pages/Favoirt/FavoritFunctionComponent';
+import CartFunctionComponent from './Pages/Cart/CartFunctionComponent';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
       <Route exact path={'/products/:productName'} component={ProductSearchComponent} />
       <Route exact path={'/categoey/:categoryName'} component={ProductsOfCategory} />
       <Route exact path={'/favorit'} component={FavoritFunctionComponent} />
+      <Route exact path={'/cart'} component={CartFunctionComponent} />
       
     </Switch>
     <FooterClassCom />

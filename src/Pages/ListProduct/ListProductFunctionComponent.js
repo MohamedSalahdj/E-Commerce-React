@@ -50,21 +50,6 @@ function ListProductFunctionComponent() {
         }
     }
 
-
-
-
-    
-
-    //here
-
-
-
-
-
-    
- 
-
-
     return (
         <>  
             <h1 className="text-center mt-5">ALL products</h1>
@@ -72,7 +57,7 @@ function ListProductFunctionComponent() {
                 <div className="row">
                 {productList.map((product,index)=> {
                      const truncatedDescription = product.description.length > 50 ?
-                     product.description.substring(0, 50) + " ..." :
+                     product.description.substring(0, 40) + " ..." :
                      product.description;
                     return (
                         <div className="col-lg-3 col-md-4 col-sm-12">

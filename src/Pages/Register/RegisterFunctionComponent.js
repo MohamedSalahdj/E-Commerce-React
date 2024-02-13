@@ -143,10 +143,7 @@ function RegisterFunctionComponent () {
     }
 };
 
-
-
     return (
-
         <>
          <div className="mt-3 mx-auto"  style={{"width":"150px"}}>
           <img src='ecommerce.png' style={{"width":"100%","height":"150px"}} className="d-block"/>

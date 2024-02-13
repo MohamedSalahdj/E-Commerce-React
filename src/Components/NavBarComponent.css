@@ -23,3 +23,26 @@
 .nav-header:hover .lnk{
     color: #fff;
 }
+
+.icons i,
+.icons a{
+    cursor: pointer;
+    margin-left: .5rem;
+    height:3.5rem;
+    line-height: 3.5rem;
+    width: 3.5rem;
+    text-align: center;
+    font-size: 1.7rem;
+    color:var(--black);
+    border-radius: 50%;
+    background: #eee;
+    text-decoration: none;
+    transition: 0.8s;
+}
+
+.icons .fas:hover,
+.icons .fas:hover{
+    color:#fff;
+    background: var(--green);
+    transform: rotate(360deg);
+}

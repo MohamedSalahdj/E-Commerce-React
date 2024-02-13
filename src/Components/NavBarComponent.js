@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom";
 
 import './NavBarComponent.css'
 
-function NavBarComponent() {
+function NavBarComponent(props) {
+    const history = useHistory();
 
     const [searchQuery, setSearchQuery] = useState('')
 
@@ -11,19 +12,22 @@ function NavBarComponent() {
         setSearchQuery(e.target.value)
     }
 
+    const logout = () => {
+        localStorage.setItem("loggedInUser", '');
+        history.push('/login');
+    }
+    const user = localStorage.getItem('loggedInUser');
+    console.log("userlogin",user)
+
     return (
         <>
         <nav className="navbar navbar-expand-lg sticky-top" style={{"background" :"#fff"}}>
             <div className="container-fluid ">
-                {/* <a className="navbar-brand" href="/"> */}
-                {/* <img src="product-logo.jpg" alt="products Logo" width="50" height="50" className="d-inline-block me-2" /> */}
-                {/* Ecommerce app */}
-                {/* <span className="ms-2"></span> */}
-                {/* </a> */}
-                <a href="/" class="text-decoration-none  navbar-brand navbar-brand-title me-5"><i className=" fas fa-cart-arrow-down text-success"></i> HYM</a>
+                <a href="/" class="text-decoration-none  navbar-brand navbar-brand-title me-5"><i className=" fas fa-cart-arrow-down text-success"></i> React E-Commerce</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" ></span>
                 </button>
+            <div className="container">
                 <div className="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item me-2">
@@ -31,9 +35,6 @@ function NavBarComponent() {
                         </li>
                         <li className="nav-item me-2 nav-header">
                             <Link className="nav-link active text-secondary lnk"  aria-current="page" to="/products">products</Link>
-                        </li>
-                        <li className="nav-item me-2  nav-header">
-                            <Link className="nav-link active text-secondary lnk"  aria-current="page" to="/favorit">Favourit</Link>
                         </li>
                     </ul>
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -50,7 +51,14 @@ function NavBarComponent() {
                             />
                             <Link to={`/products/${searchQuery}`} className="btn search-lnk" type="submit">Search</Link>
                         </form>
+                        <div className="icons ms-2">
+                            <Link to='/favorit' className="fas fa-heart"></Link>
+                            <Link to='/cart' className="fas fa-shopping-cart"></Link>
+                            {user == '' ? <Link to='/login' className="fa-solid fa-right-to-bracket fas" ></Link>
+                            : <a  className="fa-solid fa-right-from-bracket fas" onClick={logout}></a>}
+                    </div>
                 </div>
+              </div>
             </div>
         </nav>
         

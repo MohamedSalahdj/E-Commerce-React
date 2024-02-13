@@ -19,7 +19,7 @@ function HomeFunctionComponent(){
         .catch((err) => console.log("Error"))
 
 
-        axios.get('https://dummyjson.com/products?limit=12')
+        axios.get('https://dummyjson.com/products?limit=12&skip=88')
         .then((res) => setRecentProducts(res.data.products))
         .catch((err) => console.log("Error"))
     

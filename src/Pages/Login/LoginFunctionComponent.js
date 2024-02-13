@@ -5,7 +5,8 @@ import { Link } from "react-router-dom"
 
 import './Login.css';
 
-function LoginFunctionComponent() {
+function LoginFunctionComponent(props) {
+    console.log(props)
     
     const[loginData, setLoginDate] = useState({
         email: "",
@@ -79,6 +80,7 @@ function LoginFunctionComponent() {
     if (user) {
         setLoginMessage('Login successful!');
         localStorage.setItem("loggedInUser", user.email);
+        props.history.push('/')
     } else {
         setLoginMessage('Invalid email or password. Please try again.');
     }

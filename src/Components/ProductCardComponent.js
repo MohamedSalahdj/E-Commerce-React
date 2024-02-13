@@ -5,19 +5,7 @@ import { changeFavorites } from '../Pages/Store/Actions/CounterAction'
 import { useEffect, useState } from "react";
 import './ProductCard.css'
 
-
-
-class Cart {
-    static count = 0;
-    constructor(user, items = []) {
-        this.id = user.email;
-        this.user = user;
-        this.items = items;
-        // Order.count++;
-    }
-}
-
-const user = JSON.parse(localStorage.getItem('users'))[0];
+const user = localStorage.getItem('loggedInUser');
 console.log("user", user)
 
 function ProductCardComponent(props) {
@@ -35,20 +23,32 @@ function ProductCardComponent(props) {
             .catch((err) => console.log("err"))
     },[pageNumber,skipItem])
 
-    const [carts, setCarts] = useState([]);
+    const [cartss, setCarts] = useState({
+        productID : '',
+        userEmail : ''
+    }); 
+ 
     const handleAddToCart = (productId) => {
         console.log("inside add to cart func");
-        const updatedCarts = [...carts];
-    
-        // Check if the product already exists in the cart
-        if (!updatedCarts.includes(productId)) {
-            updatedCarts.push(productId,user.email);
-            localStorage.setItem('carts', JSON.stringify(updatedCarts));
-            setCarts(updatedCarts);
+        let carts = JSON.parse(localStorage.getItem('carts')) || [];
+        const cartIndex = carts.findIndex(cart => cart.productID === productId);
+
+        if (cartIndex !== -1) { 
+            carts[cartIndex].quantity += 1;
+        } else { 
+            carts.push({
+                productID: productId,
+                userEmail: user,
+                quantity: 1
+            });
         }
+    
+        setCarts(carts);
+        localStorage.setItem('carts', JSON.stringify(carts));
+    
+        console.log(carts); 
     };
-
-
+    
     const dispatch = useDispatch();
 
     function addtoFavo(e) {
@@ -62,11 +62,6 @@ function ProductCardComponent(props) {
             dispatch(changeFavorites(favCounter + 1, addProduct));
         }
     }
-
-    // Determine if the product ID is in the favorites
-    // const isFavorite = getProductsId.includes(1);
-    // console.log("check",getProductsId.includes('1'))
-    // console.log(getProductsId)
 
 
     return (
